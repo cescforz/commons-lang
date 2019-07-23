@@ -122,9 +122,9 @@
 
     <scm>
         <tag>1.0</tag>
-        <connection>https://github.com/cescforz/catch-foo</connection>
-        <url>https://github.com/cescforz/catch-foo.git</url>
-        <developerConnection>https://github.com/cescforz/catch-foo</developerConnection>
+        <connection>https://github.com/cescforz/commons-lang</connection>
+        <url>https://github.com/cescforz/commons-lang.git</url>
+        <developerConnection>https://github.com/cescforz/commons-lang</developerConnection>
     </scm>
 
     <!-- 开发者信息 -->
@@ -133,7 +133,7 @@
             <name>cescforz</name>
             <email>cescforz@gmail.com</email>
             <organization>CESC</organization>
-            <url>https://github.com/cescforz/catch-foo</url>
+            <url>https://github.com/cescforz/commons-lang</url>
         </developer>
     </developers>
 
