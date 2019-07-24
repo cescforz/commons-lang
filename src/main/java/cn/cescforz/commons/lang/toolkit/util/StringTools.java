@@ -85,13 +85,4 @@ public final class StringTools {
        %n         换行符
        %tx        日期与时间类型（x代表不同的日期与时间转换符)
      */
-
-
-    public static void main(String[] args) {
-        String str = " i want";
-        System.out.println(trimAll(str));
-
-
-
-    }
 }
