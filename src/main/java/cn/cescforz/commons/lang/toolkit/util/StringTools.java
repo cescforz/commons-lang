@@ -1,6 +1,9 @@
 package cn.cescforz.commons.lang.toolkit.util;
 
 
+import java.util.Optional;
+import java.util.regex.Pattern;
+
 /**
  * <p>©2019 Cesc. All Rights Reserved.</p>
  * <p>Description: 自定义字符串工具类</p>
@@ -44,6 +47,26 @@ public final class StringTools {
         return sb.toString();
     }
 
+    public static String trimAll(String source) {
+        return Optional.ofNullable(source).map(s -> s.replace(" ", "")).orElse(source);
+    }
+
+
+    /**
+     * 正则表达式匹配
+     *
+     * @param regex 正则表达式字符串
+     * @param input 要匹配的字符串
+     * @return 如果 input 符合 regex 正则表达式格式, 返回true, 否则返回 false;
+     */
+    public static boolean matches(String regex, String input) {
+        if (null == regex || null == input) {
+            return false;
+        }
+        return Pattern.matches(regex, input);
+    }
+
+
     /*
        String.format()
        转换符      说明        示例
@@ -62,4 +85,13 @@ public final class StringTools {
        %n         换行符
        %tx        日期与时间类型（x代表不同的日期与时间转换符)
      */
+
+
+    public static void main(String[] args) {
+        String str = " i want";
+        System.out.println(trimAll(str));
+
+
+
+    }
 }

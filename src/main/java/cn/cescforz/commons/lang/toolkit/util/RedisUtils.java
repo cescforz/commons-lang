@@ -1,5 +1,6 @@
 package cn.cescforz.commons.lang.toolkit.util;
 
+import cn.cescforz.commons.lang.toolkit.tool.KeyGenerator;
 
 import java.util.UUID;
 
@@ -57,6 +58,6 @@ public final class RedisUtils {
      * @return java.lang.String
      */
     public static String getRedisRequestNumId(long workerId, long datacenterId) {
-        return null;
+        return new KeyGenerator(workerId,datacenterId).nextId().toString();
     }
 }
