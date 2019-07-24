@@ -1,11 +1,15 @@
 
-部署snapshot快照库
+#### 部署snapshot快照库
 mvn clean deploy -Dmaven.test.skip -Dmaven.javadoc.skip=true -e
 
-部署release发布库（跳过javadoc和test)
-1.把version标签里的SNAPSHOT改为RELEASE
-2.执行以下命令
+#### 部署release发布库（跳过javadoc和test)
+1. 把version标签里的SNAPSHOT改为RELEASE或者不要SNAPSHOT
+2. 执行以下命令
 mvn clean deploy -P release -Dmaven.test.skip -Dmaven.javadoc.skip=true -e
+3. 查看settings.xml读取的是哪个
+mvn -X
+4. 运行命令时，手动指定 setting.xml
+mvn clean deploy -P release -Dmaven.test.skip -Dmaven.javadoc.skip=true -e -s D:\config\maven\sonatype\settings.xml
 
 
 > 在使用 maven 过程中，我们在开发阶段经常性的会有很多公共库处于不稳定状态，随时需要修改并发布，
@@ -24,9 +28,62 @@ mvn clean deploy -P release -Dmaven.test.skip -Dmaven.javadoc.skip=true -e
   而被依赖组件则引用快照版本进行开发，在公用库的快照版本更新后，我们也不需要修改 pom 文件提示版本号来下载新的版本，直接 mvn 执行相关编译、
   打包命令即可重新下载最新的快照库了，从而也方便了我们进行开发。  
 
--D 传入属性参数 
--P 使用 pom 中指定的配置 
--e 显示 maven 运行出错的信息 
--o 离线执行命令，即不去远程仓库更新包 
--X 显示 maven 允许的 debug 信息 
--U 强制去远程参考更新 snapshot 包 
+-h,--help                              Display help information
+
+-am,--also-make                        构建指定模块，同时构建指定模块依赖的其他模块；
+
+-amd,--also-make-dependents            构建指定模块，同时构建依赖于指定模块的其他模块；
+
+-B,--batch-mode                        以批处理 (batch) 模式运行；
+
+-C,--strict-checksums                  检查不通过，则构建失败；(严格检查)
+
+-c,--lax-checksums                     检查不通过，则警告；(宽松检查)
+
+-D,--define <arg>                      Define a system property
+
+-e,--errors                            显示详细错误信息
+
+-emp,--encrypt-master-password <arg>   Encrypt master security password
+
+-ep,--encrypt-password <arg>           Encrypt server password
+
+-f,--file <arg>                        使用指定的 POM 文件替换当前 POM 文件
+
+-fae,--fail-at-end                     最后失败模式：Maven 会在构建最后失败（停止）。如果 Maven refactor 中一个失败了，Maven 会继续构建其它项目，并在构建最后报告失败。
+
+-ff,--fail-fast                        最快失败模式： 多模块构建时，遇到第一个失败的构建时停止。
+
+-fn,--fail-never                       从不失败模式：Maven 从来不会为一个失败停止，也不会报告失败。
+
+-gs,--global-settings <arg>            替换全局级别 settings.xml 文件 (Alternate path for the global settings file)
+
+-l,--log-file <arg>                    指定输出日志文件
+
+-N,--non-recursive                     仅构建当前模块，而不构建子模块 (即关闭 Reactor 功能)。
+
+-nsu,--no-snapshot-updates             强制不更新 SNAPSHOT (Suppress SNAPSHOT updates)
+
+-U,--update-snapshots                  强制更新 releases、snapshots 类型的插件或依赖库 (否则 maven 一天只会更新一次 snapshot 依赖)
+
+-o,--offline                           运行 offline 模式，不联网进行依赖更新
+
+-P,--activate-profiles <arg>           激活指定的 profile 文件列表 (用逗号 [,] 隔开)
+
+-pl,--projects <arg>                   手动选择需要构建的项目，项目间以逗号分隔；A project can be specified by [groupId]:artifactId or by its relative path.
+
+-q,--quiet                             安静模式，只输出 ERROR
+
+-rf,--resume-from <arg>                从指定的项目 (或模块) 开始继续构建
+
+-s,--settings <arg>                    替换用户级别 settings.xml 文件 (Alternate path for the user settings file)
+
+-T,--threads <arg>                     Thread count, for instance 2.0C where C is core multiplied
+
+-t,--toolchains <arg>                  Alternate path for the user toolchains file
+
+-V,--show-version                      Display version information WITHOUT stopping build
+
+-v,--version                           Display version information
+
+-X,--debug                             输出详细信息，debug 模式。
