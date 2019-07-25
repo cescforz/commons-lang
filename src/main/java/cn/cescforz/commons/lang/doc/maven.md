@@ -11,6 +11,7 @@ mvn -X
 4. 运行命令时，手动指定 setting.xml
 mvn clean deploy -P release -Dmaven.test.skip -Dmaven.javadoc.skip=true -e -s D:\config\maven\sonatype\settings.xml
 
+mvn clean deploy -P release -Dmaven.test.skip -Dmaven.javadoc.skip=true -e -s /soft/data/config/maven/sonatype/settings.xml
 
 > 在使用 maven 过程中，我们在开发阶段经常性的会有很多公共库处于不稳定状态，随时需要修改并发布，
   可能一天就要发布一次，遇到 bug 时，甚至一天要发布 N 次。我们知道，maven 的依赖管理是基于版本管理的，
