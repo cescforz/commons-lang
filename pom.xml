@@ -2,34 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
-        <relativePath/>
-    </parent>
-
     <groupId>cn.cescforz</groupId>
     <artifactId>commons-lang</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+
     <packaging>jar</packaging>
-
     <name>commons-lang</name>
-    <description>web common-lang</description>
+    <description>cesc's web project common-lang</description>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>oss</id>
-            <!-- snapshots 的repo地址-->
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>oss</id>
-            <!-- releases 的repo地址-->
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+    <url>https://github.com/cescforz/commons-lang</url>
+    <inceptionYear>2019</inceptionYear>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,74 +24,23 @@
         <nexus-staging.version>1.6.8</nexus-staging.version>
     </properties>
 
+    <scm>
+        <tag>1.0</tag>
+        <url>https://github.com/cescforz/commons-lang</url>
+        <connection>scm:git:git://github.com/cescforz/commons-lang.git</connection>
+        <developerConnection>https://github.com/cescforz/commons-lang</developerConnection>
+    </scm>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <!--指定编译器版本-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven-compiler.version}</version>
-                        <configuration>
-                            <source>${java.version}</source>
-                            <target>${java.version}</target>
-                            <showWarnings>true</showWarnings>
-                        </configuration>
-                    </plugin>
-                    <!--打包源码-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>${maven-source.version}</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!--打包文档注释-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven-javadoc.version}</version>
-                        <!-- java8版本导致javadoc打包编译失败时候，添加-->
-                        <configuration>
-                            <doclint>none</doclint>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!--gpg加密-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven-gpg.version}</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <id>cescforz</id>
+            <name>Mike Lay</name>
+            <email>cescforz@gmail.com</email>
+            <url>https://github.com/cescforz/commons-lang</url>
+            <timezone>Asia/Shanghai</timezone>
+        </developer>
+    </developers>
 
     <!-- license 信息 -->
     <licenses>
@@ -119,24 +50,6 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-
-    <scm>
-        <tag>1.0</tag>
-        <connection>https://github.com/cescforz/commons-lang</connection>
-        <url>https://github.com/cescforz/commons-lang.git</url>
-        <developerConnection>https://github.com/cescforz/commons-lang</developerConnection>
-    </scm>
-
-    <!-- 开发者信息 -->
-    <developers>
-        <developer>
-            <name>cescforz</name>
-            <email>cescforz@gmail.com</email>
-            <organization>CESC</organization>
-            <url>https://github.com/cescforz/commons-lang</url>
-        </developer>
-    </developers>
-
 
     <dependencies>
         <!--Guava 是一种基于开源的 Java 库.
@@ -151,6 +64,7 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
+            <version>1.12</version>
         </dependency>
         <!--Commons-BeanUtils 提供对 Java 反射和自省 API 的包装-->
         <dependency>
@@ -220,6 +134,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
         </dependency>
         <!--Math 是一个轻量的，自包含的数学和统计组件，解决了许多非常通用但没有及时出现在 Java 标准语言中的实践问题-->
         <dependency>
@@ -231,6 +146,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
+            <version>2.6.2</version>
         </dependency>
         <!--随机数发生器的实现-->
         <dependency>
@@ -243,12 +159,29 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>1.6</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-lang3</artifactId>
+                    <groupId>org.apache.commons</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--optional为true时依赖不会传递-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.8</version>
+            <!--<scope>provided</scope>-->
+            <!--<optional>true</optional>-->
+
+            <!--scope:用于限制相应的依赖范围，包括以下的几种变量：
+                      compile ：默认范围，用于编译
+                      provided：类似于编译，但支持你期待jdk或者容器提供，类似于classpath
+                      runtime:在执行时，需要使用
+                      test:用于test任务时使用
+                      system:需要外在提供相应得元素。通过systemPath来取得
+                      systemPath: 仅用于范围为system。提供相应的路径
+                      optional: 标注可选，当项目自身也是依赖时。用于连续依赖时使用-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -258,12 +191,14 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- sonatype提供了自动release的插件，这意味着运行mvn clean deploy后不用手动去close-> release了，
+            <!-- sonatype提供了自动release的插件，
+                 运行mvn clean deploy后不用手动去close-> release
                  此插件会自动release我们的项目到Maven中央仓库。 -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
@@ -279,4 +214,85 @@
         </plugins>
         <defaultGoal>compile</defaultGoal>
     </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!--指定编译器版本-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>${maven-compiler.version}</version>
+                        <configuration>
+                            <source>${java.version}</source>
+                            <target>${java.version}</target>
+                            <showWarnings>true</showWarnings>
+                        </configuration>
+                    </plugin>
+                    <!--打包源码-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!--打包文档注释-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc.version}</version>
+                        <!-- java8版本导致javadoc打包编译失败时候，添加-->
+                        <configuration>
+                            <doclint>none</doclint>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!--gpg加密-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <!-- snapshots 的repo地址-->
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <!-- releases 的repo地址-->
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>
