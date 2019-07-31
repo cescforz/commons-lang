@@ -1,5 +1,6 @@
 package cn.cescforz.commons.lang.toolkit.util;
 
+import cn.cescforz.commons.lang.constant.SystemConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -31,7 +32,7 @@ public final class DateUtils {
      */
     public static String dateToString(String pattern, Date date){
         if (StringUtils.isBlank(pattern)) {
-            pattern = FormatEnum.PATTERN_DATETIME_24.getPattern();
+            pattern = SystemConstants.PATTERN_DATETIME_24;
         }
         DateTimeFormatter dt = DateTimeFormatter.ofPattern(pattern);
         ZoneId zoneId = ZoneId.systemDefault();
@@ -47,7 +48,7 @@ public final class DateUtils {
      */
     public static Date stringToDate(String pattern,String dateStr){
         if (StringUtils.isBlank(pattern)) {
-            pattern = FormatEnum.PATTERN_DATETIME_24.getPattern();
+            pattern = SystemConstants.PATTERN_DATETIME_24;
         }
         DateTimeFormatter dt = DateTimeFormatter.ofPattern(pattern);
         LocalDateTime ldt = LocalDateTime.parse(dateStr, dt);
