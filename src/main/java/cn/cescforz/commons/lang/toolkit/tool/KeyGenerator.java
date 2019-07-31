@@ -2,7 +2,7 @@ package cn.cescforz.commons.lang.toolkit.tool;
 
 
 import cn.cescforz.commons.lang.enums.ResponseEnum;
-import cn.cescforz.commons.lang.exception.BusinessRuntimeException;
+import cn.cescforz.commons.lang.exception.CustomRtException;
 
 /*
 
@@ -122,7 +122,7 @@ public class KeyGenerator {
         long timestamp = timeGen();
         // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
         if (timestamp < lastTimestamp) {
-            throw new BusinessRuntimeException(ResponseEnum.SERVICE_EXCEPTION,
+            throw new CustomRtException(ResponseEnum.SERVICE_EXCEPTION,
                     String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
         }
         // 如果是同一时间生成的，则进行毫秒内序列

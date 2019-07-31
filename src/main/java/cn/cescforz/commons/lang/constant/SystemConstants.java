@@ -31,8 +31,17 @@ public final class SystemConstants {
      * yyyy-MM-dd hh:mm:ss 12小时制
      * yyyy-MM-dd HH:mm:ss 24小时制
      */
-    public static final String DATE_PATTERN_24 = "yyyy-MM-dd HH:mm:ss";
-    public static final String DATE_PATTERN_12 = "yyyy-MM-dd hh:mm:ss";
+    public static final String PATTERN_DEFAULT = "yyyy-MM-dd";
+    public static final String PATTERN_DATETIME_24 = "yyyy-MM-dd HH:mm:ss";
+    public static final String PATTERN_DATETIME_12 = "yyyy-MM-dd hh:mm:ss";
+    public static final String PATTERN_DATETIME_COMPACT = "yyyyMMddHHmmss";
+    public static final String PATTERN_YEAR_MON = "yyyy-MM";
+    public static final String PATTERN_DATE_COMPACT = "yyyyMMdd";
+    public static final String PATTERN_DATE_SHORT = "yyMMdd";
+    public static final String PATTERN_YEARMONTH = "yyyyMM";
+
+
+
     public static final String DEFAULT_TIME_ZONE = "GMT+8";
 
 

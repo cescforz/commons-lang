@@ -1,6 +1,5 @@
 package cn.cescforz.commons.lang.toolkit.util;
 
-import cn.cescforz.commons.lang.enums.FormatEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 

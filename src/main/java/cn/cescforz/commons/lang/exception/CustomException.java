@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * <p>©2018 Cesc. All Rights Reserved.</p>
- * <p>Description: 自定义非检性异常</p>
+ * <p>Description: 自定义异常</p>
  *
  * @author cesc
  * @version v1.0
@@ -15,9 +15,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Getter
 @Setter
-public class BusinessRuntimeException extends RuntimeException {
+public class CustomException extends Exception {
 
-    private static final long serialVersionUID = -8420380872601474388L;
+    private static final long serialVersionUID = 1567951351425380751L;
 
     /** 错误码 */
     private String errorCode;
@@ -27,29 +27,31 @@ public class BusinessRuntimeException extends RuntimeException {
     private ResponseEnum responseEnum;
 
 
-    public BusinessRuntimeException(String errorMsg) {
+    public CustomException(String errorMsg) {
         super(errorMsg);
         this.errorMsg = errorMsg;
     }
 
-    public BusinessRuntimeException(String errorCode, String errorMsg) {
+    public CustomException(String errorCode, String errorMsg) {
         super(String.format("错误码:[%s],错误信息:%s",errorCode,errorMsg));
         this.errorMsg = errorMsg;
         this.errorCode = errorCode;
     }
 
-    public BusinessRuntimeException(ResponseEnum responseEnum) {
+    public CustomException(ResponseEnum responseEnum) {
         super(responseEnum.getCnInfo());
+        this.errorCode = responseEnum.getCode();
+        this.errorMsg = String.format("%s:%s",responseEnum.getEnInfo(),responseEnum.getCnInfo());
         this.responseEnum = responseEnum;
     }
 
-    public BusinessRuntimeException(ResponseEnum responseEnum, String msg) {
+    public CustomException(ResponseEnum responseEnum, String msg) {
         this(responseEnum, msg, null);
     }
 
-    public BusinessRuntimeException(ResponseEnum responseEnum, String msg, String boundSymbol) {
+    public CustomException(ResponseEnum responseEnum, String msg, String boundSymbol) {
         super(String.format("%s%s %s", responseEnum.getCnInfo(), StringUtils.isEmpty(boundSymbol) ? "," : boundSymbol, msg));
+        this.errorCode = responseEnum.getCode();
         this.responseEnum = responseEnum;
     }
-
 }
