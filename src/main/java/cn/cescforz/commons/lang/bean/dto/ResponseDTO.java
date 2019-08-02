@@ -19,12 +19,12 @@ public class ResponseDTO<T> extends BaseApiResponse {
 
     private static final long serialVersionUID = 7924193368059202977L;
 
-    /**返回数据*/
-    private T data;
+    /** 返回数据 */
+    private T respData;
 
     public ResponseDTO(boolean success, String errCode, String errDesc, T data) {
         super(success, errCode, errDesc);
-        this.data = data;
+        this.respData = data;
     }
 
     public ResponseDTO(boolean success, String errCode, String errDesc) {

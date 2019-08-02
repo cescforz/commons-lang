@@ -43,7 +43,7 @@ public class Page<T> implements Serializable {
     private static final long serialVersionUID = 7179869349259717991L;
 
     /** 记录列表 */
-    private List<T> data;
+    private List<T> pageData;
     /** 总页数 */
     private Integer pageCount;
     /** 总记录数目 */
@@ -112,11 +112,11 @@ public class Page<T> implements Serializable {
     }
 
     @SuppressWarnings("unchecked")
-    public void makePageList(List<T> data, int pageCount, long recordCount, int pageIndex, int pageSize) {
-        if (data == null) {
-            data = new ArrayList();
+    public void makePageList(List<T> pageData, int pageCount, long recordCount, int pageIndex, int pageSize) {
+        if (pageData == null) {
+            pageData = new ArrayList();
         }
-        this.data = data;
+        this.pageData = pageData;
         this.pageCount = pageCount;
         this.recordCount = recordCount;
         this.pageIndex = pageIndex;
@@ -152,7 +152,7 @@ public class Page<T> implements Serializable {
     }
 
     public boolean hasPage() {
-        return CollectionUtils.isNotEmpty(data);
+        return CollectionUtils.isNotEmpty(pageData);
     }
 
     public boolean isLast() {

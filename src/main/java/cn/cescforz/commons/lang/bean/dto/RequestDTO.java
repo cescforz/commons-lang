@@ -22,5 +22,5 @@ public class RequestDTO<T> extends BaseApiRequest {
     private static final long serialVersionUID = 2951311414217518627L;
 
     /** 请求数据 */
-    private T data;
+    private T reqData;
 }
