@@ -327,6 +327,8 @@
                 </configuration>
             </plugin>
         </plugins>
+        <!--org.apache.maven.lifecycle.NoGoalSpecifiedException: No goals have been specified for this build-->
+        <defaultGoal>compile</defaultGoal>
     </build>
 
     <distributionManagement>

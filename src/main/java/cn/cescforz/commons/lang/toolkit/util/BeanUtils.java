@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * <p>Description: Cglib BeanCopier 工具类</p>
  *
- * @author developer developer@midea.com.cn
+ * @author cesc
  * @version 1.00.00
  * @date Create in 2019/9/6 10:17
  */
