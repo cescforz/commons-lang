@@ -62,7 +62,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>28.0-jre</version>
+            <version>29.0-jre</version>
         </dependency>
         <!--Commons项目中用来处理常用的编码方法的工具类包，例如DES、SHA1、MD5、Base64, 及 hex, metaphone, soundex 等编码演算-->
         <dependency>
