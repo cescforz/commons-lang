@@ -80,7 +80,7 @@
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
-            <version>3.6</version>
+            <version>3.9.0</version>
         </dependency>
         <!--各种集合类和集合工具类的封装-->
         <dependency>
