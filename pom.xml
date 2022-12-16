@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <spring.version>5.1.8.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <!--plugins-->
         <maven-compiler.version>3.8.1</maven-compiler.version>
         <maven-source.version>3.1.0</maven-source.version>
